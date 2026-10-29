@@ -1,5 +1,4 @@
 // Datos de contacto y navegación del sitio nuevo.
-// Los valores entre [corchetes] son placeholders pendientes de confirmar.
 
 export const BASE = "/wp";
 
@@ -9,14 +8,30 @@ export const SITE = {
   phoneDisplay: "322 100 5170",
   phoneHref: "tel:+523221005170",
   whatsappNumber: "523221005170",
-  email: "[correo@waldorfpacifico.mx]",
-  address: "[Calle y número], Bahía de Banderas, Nayarit",
-  mapsUrl: "[enlace de Google Maps]",
-  hours: "[Lunes a viernes, 8:00 a 14:00 h]",
-  instagram: "[https://instagram.com/waldorfpacifico]",
-  facebook: "[https://facebook.com/waldorfpacifico]",
+  email: "waldorfpacifico@gmail.com",
+  hours: "Lunes a viernes, 8:00 a 14:00 h",
+  instagram: "https://instagram.com/waldorfpacifico",
+  instagramHandle: "@waldorfpacifico",
   founded: 2011,
 };
+
+// Jardín y primaria están en planteles distintos
+export const LOCATIONS = [
+  {
+    label: "Jardín de niños",
+    address: "19 de Marzo s/n, esq. San Antonio, Col. Emiliano M. González, 63732 Bucerías, Nay.",
+    query: "19 de Marzo s/n esq. San Antonio, Emiliano M. González, 63732 Bucerías, Nayarit",
+  },
+  {
+    label: "Primaria",
+    address: "RQC2+8V, 63730 Valle de Banderas, Nay.",
+    query: "RQC2+8V, 63730 Valle de Banderas, Nayarit",
+  },
+].map((l) => ({
+  ...l,
+  mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l.query)}`,
+  embedUrl: `https://www.google.com/maps?q=${encodeURIComponent(l.query)}&output=embed`,
+}));
 
 export const VISIT_MESSAGE =
   "¡Hola! Me gustaría agendar una visita para conocer Waldorf Pacífico.";
@@ -25,10 +40,6 @@ export function waLink(message: string = VISIT_MESSAGE) {
   return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
-// Un placeholder todavía no es un enlace real
-export function isPlaceholder(value: string) {
-  return value.startsWith("[");
-}
 
 export const NAV = [
   { href: `${BASE}/nosotros`, label: "Nosotros" },

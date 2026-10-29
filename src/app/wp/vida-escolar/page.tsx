@@ -89,7 +89,6 @@ const SECCIONES: Seccion[] = [
       { src: photo("ronda-ninos-playa"), alt: "Ronda de niños tomados de la mano en la playa" },
       { src: photo("rancho-nino-ordenando-vaca"), alt: "Niño ordeñando una vaca en el rancho" },
       { src: photo("mariposario-orugas-monarca"), alt: "Orugas de mariposa monarca" },
-      { src: photo("huaracheria-artesano-taller"), alt: "Artesano trabajando en la huarachería" },
       { src: photo("caminata-camino-milpa"), alt: "Caminata por un camino junto a la milpa" },
       { src: photo("paseo-lancha-chalecos"), alt: "Paseo en lancha con chalecos salvavidas" },
       { src: photo("mariposario-guia-explicando"), alt: "Guía del mariposario explicando a los niños" },

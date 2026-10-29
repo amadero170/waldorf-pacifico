@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { isPlaceholder, photo, SITE, waLink } from "../_lib/site";
+import { LOCATIONS, photo, SITE, waLink } from "../_lib/site";
 import { Reveal } from "../_components/Reveal";
-import { ClockIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "../_components/Icons";
+import { ClockIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "../_components/Icons";
 import { Eyebrow, Heading, Photo, Squiggle, VisitButton } from "../_components/ui";
 
 export const metadata: Metadata = {
@@ -12,9 +12,10 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   const datos = [
     { Icon: PhoneIcon, label: "Teléfono", value: SITE.phoneDisplay, href: SITE.phoneHref },
-    { Icon: MailIcon, label: "Correo", value: SITE.email, href: isPlaceholder(SITE.email) ? undefined : `mailto:${SITE.email}` },
-    { Icon: PinIcon, label: "Dirección", value: SITE.address, href: isPlaceholder(SITE.mapsUrl) ? undefined : SITE.mapsUrl },
+    { Icon: MailIcon, label: "Correo", value: SITE.email, href: `mailto:${SITE.email}` },
+    { Icon: InstagramIcon, label: "Instagram", value: SITE.instagramHandle, href: SITE.instagram },
     { Icon: ClockIcon, label: "Horario", value: SITE.hours },
+    ...LOCATIONS.map((l) => ({ Icon: PinIcon, label: l.label, value: l.address, href: l.mapsUrl })),
   ];
 
   return (
@@ -57,7 +58,7 @@ export default function ContactoPage() {
                     <dt className="wp-hand text-lg text-wp-ink-soft">{label}</dt>
                     <dd className="font-semibold text-wp-ink">
                       {href ? (
-                        <a href={href} className="hover:text-wp-peach-deep">
+                        <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="hover:text-wp-peach-deep">
                           {value}
                         </a>
                       ) : (
@@ -95,12 +96,36 @@ export default function ContactoPage() {
             </div>
             <VisitButton>Agenda tu visita</VisitButton>
           </Reveal>
-          {/* Placeholder: reemplazar por el iframe de Google Maps con la ubicación de la escuela */}
-          <Reveal className="wp-wash-lavender flex h-80 flex-col items-center justify-center rounded-[2rem] border-2 border-dashed border-wp-ink/15 p-8 text-center sm:h-auto sm:aspect-[21/9]">
-            <PinIcon className="h-12 w-12 text-wp-peach-deep" />
-            <p className="wp-display mt-4 text-4xl text-wp-ink">Bahía de Banderas, Nayarit</p>
-            <p className="mt-2 text-wp-ink-soft">[Mapa de Google pendiente: se agrega cuando tengamos la dirección exacta]</p>
-          </Reveal>
+          <div className="grid gap-8 lg:grid-cols-2">
+            {LOCATIONS.map((l, i) => (
+              <Reveal key={l.label} delay={i * 100} className="h-full">
+                <div className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-wp-line bg-wp-paper">
+                  <iframe
+                    src={l.embedUrl}
+                    title={`Mapa de ${l.label}`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="aspect-[4/3] w-full border-0"
+                  />
+                  <div className="flex flex-wrap items-start justify-between gap-4 p-6 sm:p-8">
+                    <div>
+                      <h3 className="wp-display text-4xl text-wp-ink">{l.label}</h3>
+                      <p className="mt-1 text-lg text-wp-ink-soft">{l.address}</p>
+                    </div>
+                    <a
+                      href={l.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-wp-line px-4 py-2 font-semibold text-wp-ink transition-colors hover:border-wp-peach-deep hover:text-wp-peach-deep"
+                    >
+                      <PinIcon className="h-4 w-4" />
+                      Abrir en Google Maps
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </>

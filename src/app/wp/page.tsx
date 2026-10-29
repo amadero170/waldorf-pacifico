@@ -143,8 +143,8 @@ export default function Home() {
                 href: `${BASE}/jardin`,
                 title: "Jardín de niños",
                 text: "Juego libre, cuentos, rondas y mucha naturaleza. Un ambiente cálido, rítmico y seguro, como un segundo hogar.",
-                src: photo("ronda-aula-coronas-hojas"),
-                alt: "Ronda de niños en el aula con coronas de hojas",
+                src: photo("nina-pintando-manta-mural"),
+                alt: "Niña del jardín pintando una manta grande",
                 accent: "text-wp-sage-deep",
               },
               {

@@ -1,14 +1,9 @@
 import Link from "next/link";
-import { BASE, isPlaceholder, NAV, SITE, waLink } from "../_lib/site";
-import { ClockIcon, FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./Icons";
+import { BASE, LOCATIONS, NAV, SITE, waLink } from "../_lib/site";
+import { ClockIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./Icons";
 import { Logo } from "./Logo";
 
 export function Footer() {
-  const socials = [
-    { href: SITE.instagram, label: "Instagram", Icon: InstagramIcon },
-    { href: SITE.facebook, label: "Facebook", Icon: FacebookIcon },
-  ];
-
   return (
     <footer className="wp-wash-lavender border-t border-wp-line">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1.3fr_1fr_1.2fr] lg:px-8">
@@ -20,20 +15,17 @@ export function Footer() {
             “El niño ha de ser recibido con respeto, educado con amor y, al final, puesto en libertad.”
           </p>
           <p className="mt-2 text-sm font-semibold text-wp-ink-soft">— Rudolf Steiner</p>
-          <div className="mt-6 flex gap-3">
-            {socials.map(({ href, label, Icon }) => (
-              <a
-                key={label}
-                href={isPlaceholder(href) ? "#" : href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-wp-ink/15 bg-wp-paper text-wp-ink transition-colors hover:border-wp-peach-deep hover:text-wp-peach-deep"
-              >
-                <Icon />
-              </a>
-            ))}
-          </div>
+          <a
+            href={SITE.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-3 font-semibold text-wp-ink transition-colors hover:text-wp-peach-deep"
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-wp-ink/15 bg-wp-paper">
+              <InstagramIcon />
+            </span>
+            {SITE.instagramHandle}
+          </a>
         </div>
 
         <div>
@@ -64,14 +56,23 @@ export function Footer() {
                 {SITE.phoneDisplay}
               </a>
             </li>
-            <li className="flex items-center gap-3">
-              <MailIcon className="h-5 w-5 shrink-0" />
-              {SITE.email}
+            <li>
+              <a href={`mailto:${SITE.email}`} className="flex items-center gap-3 hover:text-wp-peach-deep">
+                <MailIcon className="h-5 w-5 shrink-0" />
+                {SITE.email}
+              </a>
             </li>
-            <li className="flex items-start gap-3">
-              <PinIcon className="mt-0.5 h-5 w-5 shrink-0" />
-              {SITE.address}
-            </li>
+            {LOCATIONS.map((l) => (
+              <li key={l.label}>
+                <a href={l.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:text-wp-peach-deep">
+                  <PinIcon className="mt-0.5 h-5 w-5 shrink-0" />
+                  <span>
+                    <span className="block font-semibold">{l.label}</span>
+                    {l.address}
+                  </span>
+                </a>
+              </li>
+            ))}
             <li className="flex items-center gap-3">
               <ClockIcon className="h-5 w-5 shrink-0" />
               {SITE.hours}

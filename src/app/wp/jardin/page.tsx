@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { photo, SITE, video } from "../_lib/site";
+import { photo, SITE } from "../_lib/site";
 import { PageHero } from "../_components/PageHero";
 import { Reveal } from "../_components/Reveal";
 import { Gallery } from "../_components/Gallery";
-import { AutoVideo } from "../_components/AutoVideo";
 import { Eyebrow, Heading, Photo, VisitButton } from "../_components/ui";
 import { VisitCTA } from "../_components/VisitCTA";
 
@@ -55,15 +54,12 @@ const DIA = [
   { time: "Cuento", text: "Cerramos la jornada con un relato." },
 ];
 
+// Solo fotos confirmadas del plantel del jardín (Bucerías)
 const FOTOS = [
-  { src: photo("maestra-relato-palapa-guirnaldas"), alt: "Maestra narrando bajo la palapa decorada con guirnaldas" },
-  { src: photo("nino-tina-agua-sonriendo"), alt: "Niño sonriendo dentro de una tina con agua" },
-  { src: photo("ninos-modelando-plastilina"), alt: "Niños modelando con plastilina" },
-  { src: photo("mesa-estacion-frutas-flores"), alt: "Mesa de estación con frutas y flores" },
-  { src: photo("nino-collar-hojas"), alt: "Niño con collar de hojas" },
-  { src: photo("yoga-maestra-nino-jardin"), alt: "Maestra y niño haciendo yoga en el jardín" },
-  { src: photo("nina-pintando-acuarela"), alt: "Niña pintando" },
-  { src: photo("pascua-busqueda-huevos-canasta"), alt: "Búsqueda de huevos de Pascua con canasta" },
+  { src: photo("pascua-busqueda-huevos-canasta"), alt: "Niño del jardín buscando huevos de Pascua con su canasta" },
+  { src: photo("ninos-pintando-manta-atomizador"), alt: "Niños del jardín pintando una manta con atomizadores" },
+  { src: photo("nina-pintando-manta-mural"), alt: "Niña del jardín pintando una manta grande" },
+  { src: photo("taller-padres-ronda-movimiento"), alt: "Madres y padres del jardín en una actividad en ronda" },
 ];
 
 export default function JardinPage() {
@@ -83,8 +79,8 @@ export default function JardinPage() {
           </>
         }
         photos={[
-          { src: photo("ronda-aula-coronas-hojas"), alt: "Ronda de niños en el aula con coronas de hojas" },
-          { src: photo("ninos-jardin-arco"), alt: "Niños jugando en el jardín" },
+          { src: photo("pascua-busqueda-huevos-canasta"), alt: "Niño del jardín buscando huevos de Pascua" },
+          { src: photo("ninos-pintando-manta-atomizador"), alt: "Niños del jardín pintando una manta" },
         ]}
       />
 
@@ -129,13 +125,12 @@ export default function JardinPage() {
             </ol>
           </Reveal>
           <Reveal delay={100} className="mx-auto w-full max-w-sm">
-            <div className="aspect-[9/16] overflow-hidden rounded-[2rem] bg-wp-ink shadow-[0_40px_80px_-40px_rgba(46,58,89,0.6)]">
-              <AutoVideo
-                src={video("ninas-jardin-juego")}
-                poster="/wp/videos/ninas-jardin-juego.jpg"
-                label="Niñas jugando en el jardín de la escuela"
-              />
-            </div>
+            <Photo
+              src={photo("nina-pintando-manta-mural")}
+              alt="Niña del jardín pintando una manta grande"
+              sizes="(min-width: 1024px) 30vw, 90vw"
+              className="wp-arch aspect-[3/4] shadow-[0_40px_80px_-40px_rgba(46,58,89,0.6)]"
+            />
           </Reveal>
         </div>
       </section>
@@ -149,7 +144,7 @@ export default function JardinPage() {
               <Heading className="mt-3 text-wp-ink">Pequeños grandes descubrimientos</Heading>
             </div>
             <div className="flex items-center gap-5 lg:justify-end">
-              <Photo src={photo("nina-corona-flores")} alt="Niña con corona de flores" sizes="80px" className="h-20 w-20 shrink-0 rounded-full" />
+              <Photo src={photo("pascua-busqueda-huevos-canasta")} alt="Niño del jardín con su canasta de Pascua" sizes="80px" className="h-20 w-20 shrink-0 rounded-full" />
               <p className="wp-hand max-w-xs text-lg text-wp-ink-soft">¿Quieres ver cómo es una mañana en el jardín? Ven a visitarnos.</p>
             </div>
           </Reveal>
