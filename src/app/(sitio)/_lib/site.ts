@@ -1,4 +1,4 @@
-// Datos de contacto y navegación de la sitio (con contenido del libro Waldorf).
+// Datos de contacto y navegación del sitio (con contenido del libro Waldorf).
 // Las fotos y videos se comparten con /wp (public/wp).
 
 export const BASE = "";
