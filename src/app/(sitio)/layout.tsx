@@ -23,13 +23,11 @@ export const metadata: Metadata = {
     "Comunidad educativa Waldorf en Bahía de Banderas, Nayarit. Jardín de niños y primaria en contacto con la naturaleza. Agenda tu visita.",
   openGraph: {
     title: "Waldorf Pacífico",
-    description: "Educar con respeto, amor y libertad. Jardín de niños y primaria Waldorf en Bahía de Banderas.",
+    description: "Una infancia con tiempo para crecer. Jardín de niños y primaria Waldorf en Bahía de Banderas.",
     locale: "es_MX",
     type: "website",
     images: ["/wp/fotos/grupo-ninos-camino-montanas-flores.jpg"],
   },
-  // Versión de prueba: no indexar mientras conviva con /wp
-  robots: { index: false, follow: false },
 };
 
 export default function WpLayout({ children }: { children: React.ReactNode }) {

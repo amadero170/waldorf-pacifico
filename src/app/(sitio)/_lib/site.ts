@@ -1,11 +1,11 @@
-// Datos de contacto y navegación de la versión 2 (con contenido del libro Waldorf).
+// Datos de contacto y navegación de la sitio (con contenido del libro Waldorf).
 // Las fotos y videos se comparten con /wp (public/wp).
 
-export const BASE = "/wp2";
+export const BASE = "";
 
 export const SITE = {
   name: "Waldorf Pacífico",
-  tagline: "Educar con respeto, amor y libertad",
+  tagline: "Una infancia con tiempo para crecer",
   phoneDisplay: "322 100 5170",
   phoneHref: "tel:+523221005170",
   whatsappNumber: "523221005170",

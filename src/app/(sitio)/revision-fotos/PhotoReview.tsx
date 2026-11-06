@@ -35,7 +35,7 @@ const FILTERS = [
   { value: "jardin", label: "Usadas en Jardín" },
   { value: "primaria", label: "Usadas en Primaria" },
   { value: "conflictos", label: "Cruces" },
-  { value: "sin-usar", label: "Sin usar en /wp2" },
+  { value: "sin-usar", label: "Sin usar en el sitio" },
   { value: "sin-marcar", label: "Sin marcar" },
 ] as const;
 
@@ -164,7 +164,7 @@ export function PhotoReview({ items }: { items: ReviewItem[] }) {
                       {item.usedIn.join(" · ")}
                     </>
                   ) : (
-                    <span className="italic">No se usa en /wp2</span>
+                    <span className="italic">No se usa en el sitio</span>
                   )}
                 </div>
                 {crossed && (

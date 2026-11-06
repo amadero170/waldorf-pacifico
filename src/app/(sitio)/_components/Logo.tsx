@@ -1,5 +1,8 @@
 // Atrapasueños del logo de Waldorf Pacífico, redibujado en SVG.
 // Placeholder hasta tener el archivo original del logo.
+// Redondeo para que servidor y navegador generen el mismo SVG (evita error de hidratación).
+const r = (n: number) => Math.round(n * 1000) / 1000;
+
 export function DreamcatcherMark({ className = "" }: { className?: string }) {
   const spokes = Array.from({ length: 12 }, (_, i) => (i * Math.PI) / 6);
   return (
@@ -11,10 +14,10 @@ export function DreamcatcherMark({ className = "" }: { className?: string }) {
       {spokes.map((a, i) => (
         <line
           key={i}
-          x1={32 + Math.cos(a) * 4}
-          y1={30 + Math.sin(a) * 4}
-          x2={32 + Math.cos(a) * 27}
-          y2={30 + Math.sin(a) * 27}
+          x1={r(32 + Math.cos(a) * 4)}
+          y1={r(30 + Math.sin(a) * 4)}
+          x2={r(32 + Math.cos(a) * 27)}
+          y2={r(30 + Math.sin(a) * 27)}
           stroke="#3a69ab"
           strokeOpacity="0.45"
           strokeWidth="1"

@@ -60,7 +60,7 @@ export function Header() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 lg:px-8">
-          <Link href={BASE} aria-label="Waldorf Pacífico, inicio">
+          <Link href={`${BASE}/`} aria-label="Waldorf Pacífico, inicio">
             <Logo />
           </Link>
 
@@ -129,7 +129,7 @@ export function Header() {
           className={`relative flex h-full flex-col justify-center px-8 transition-opacity duration-300 ${open ? "opacity-100" : "invisible opacity-0"}`}
         >
           <ul className="space-y-2">
-            {[{ href: BASE, label: "Inicio" }, ...NAV].map((item, i) => (
+            {[{ href: `${BASE}/`, label: "Inicio" }, ...NAV].map((item, i) => (
               <li
                 key={item.href}
                 className="transition-[opacity,transform] duration-500"

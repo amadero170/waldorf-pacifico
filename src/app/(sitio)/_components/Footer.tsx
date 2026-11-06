@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="wp-wash-lavender border-t border-wp-line">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1.3fr_1fr_1.2fr] lg:px-8">
         <div>
-          <Link href={BASE} aria-label="Waldorf Pacífico, inicio">
+          <Link href={`${BASE}/`} aria-label="Waldorf Pacífico, inicio">
             <Logo />
           </Link>
           <p className="wp-hand mt-6 max-w-sm text-xl leading-snug text-wp-ink-soft">

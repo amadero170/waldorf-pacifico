@@ -40,14 +40,13 @@ export default function Home() {
       <section className="wp-wash-sun relative overflow-hidden">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-20 pt-10 lg:grid-cols-[1fr_1.05fr] lg:gap-10 lg:px-8 lg:pb-28 lg:pt-16">
           <div className="relative z-10">
-            <Eyebrow>Pedagogía Waldorf en Bahía de Banderas</Eyebrow>
-            <Heading as="h1" className="mt-4 text-wp-ink">
-              Educar con respeto, amor y <span className="text-wp-peach-deep">libertad</span>
+            <Heading as="h1" className="text-wp-ink">
+              Una infancia con tiempo para <span className="text-wp-peach-deep">crecer</span>
             </Heading>
             <Squiggle className="mt-6 h-3.5 w-36 text-wp-sun-deep" />
             <p className="mt-7 max-w-lg text-xl leading-relaxed text-wp-ink-soft">
-              Somos una comunidad educativa que acompaña a cada niño a crecer sano, feliz y libre: jardín de niños y
-              primaria en contacto con la naturaleza, con el hacer, el sentir y el pensar en equilibrio.
+              Jardín de niños y primaria Waldorf en contacto con la naturaleza, donde cada niño aprende con las manos,
+              el corazón y la cabeza.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
               <VisitButton />
@@ -115,11 +114,11 @@ export default function Home() {
           </Reveal>
           <Reveal className="order-1 lg:order-2" delay={100}>
             <Eyebrow>¿Quiénes somos?</Eyebrow>
-            <Heading className="mt-3 text-wp-ink">Una comunidad que educa desde el amor</Heading>
+            <Heading className="mt-3 text-wp-ink">Familias y maestras, un mismo camino</Heading>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-wp-ink-soft">
               <p>
-                Waldorf Pacífico es una comunidad educativa que busca formar seres humanos equilibrados y libres,
-                preservando íntegramente los principios de la pedagogía Waldorf.
+                En Waldorf Pacífico buscamos formar seres humanos equilibrados, preservando íntegramente los principios
+                de la pedagogía Waldorf.
               </p>
               <p>
                 En septiembre de {SITE.founded} creamos el primer Jardín de Niños Waldorf de la Bahía, apadrinados y

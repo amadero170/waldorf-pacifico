@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// Página interna: no aparece en el menú. Se genera al compilar leyendo el código de /wp2.
+// Página interna: no aparece en el menú. Se genera al compilar leyendo el código del sitio.
 export const dynamic = "force-static";
 
-const APP_DIR = path.join(process.cwd(), "src/app/wp2");
+const APP_DIR = path.join(process.cwd(), "src/app/(sitio)");
 const PUBLIC_DIR = path.join(process.cwd(), "public/wp");
 
 const PAGES = [
@@ -95,7 +95,7 @@ export default function RevisionFotosPage() {
         </Heading>
         <div className="mt-6 max-w-3xl space-y-3 text-lg leading-relaxed text-wp-ink-soft">
           <p>
-            Todas las fotos y videos del sitio, con la página de /wp2 donde aparece cada una (se detecta solo, leyendo el
+            Todas las fotos y videos del sitio, con la página del sitio donde aparece cada una (se detecta solo, leyendo el
             código). La etiqueta de color es la clasificación que nos confirmaste; las que dicen “Sin clasificar” están pendientes.
           </p>
           <p>
